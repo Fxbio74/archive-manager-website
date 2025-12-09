@@ -857,10 +857,14 @@
       document.getElementById('themeIcon').textContent = theme === 'dark' ? '☀️' : '🌙';
     }
 
-    // Download functions
     function downloadWindows() {
-      alert('Windows Download startet...\n\nFüge hier später deinen GitHub Release Link ein!');
-       window.location.href = 'https://github.com/Fxbio74/archive-manager-website/releases/download/v1.0.0/Archive.Manager.Setup.1.0.0.exe';
+  // Direkter Download ohne Umleitung
+      const link = document.createElement('a');
+      link.href = "https://github.com/Fxbio74/archive-manager-website/releases/download/v1.0.0/Archive.Manager.Setup.1.0.0.exe";
+      link.download = "Archive-Manager-Setup.exe";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
     function downloadMac() {
