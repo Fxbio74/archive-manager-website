@@ -52,6 +52,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 2rem;
     }
 
     .logo {
@@ -60,6 +61,26 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      transform: translateY(-2px);
     }
 
     .nav-right {
@@ -183,14 +204,34 @@
     }
 
     .download-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .download-card {
       display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: var(--glass-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .download-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(102, 126, 234, 0.6);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+      background: rgba(102, 126, 234, 0.05);
     }
 
     .download-btn {
-      padding: 1rem 2rem;
+      padding: 1.25rem 2rem;
       border-radius: 12px;
       font-size: 1rem;
       font-weight: 600;
@@ -198,8 +239,32 @@
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.75rem;
       border: none;
+      width: 100%;
+    }
+
+    .system-requirements {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 2;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .system-requirements .req-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+      opacity: 0.7;
+    }
+
+    .system-requirements p {
+      margin: 0;
+      font-size: 0.875rem;
     }
 
     .download-btn-primary {
@@ -311,18 +376,40 @@
       }
 
       .download-buttons {
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
 
       .features-grid {
         grid-template-columns: 1fr;
       }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
   <nav>
     <div class="logo">📦 Archive Manager</div>
+    <div class="nav-links">
+      <a href="#features" data-i18n="nav-features">Features</a>
+      <a href="#download" data-i18n="nav-download">Download</a>
+      <a href="https://github.com" target="_blank" data-i18n="nav-github">GitHub</a>
+    </div>
     <div class="nav-right">
       <div class="lang-selector">
         <button class="lang-btn" onclick="toggleLangDropdown()">
@@ -348,7 +435,7 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="download">
     <div class="hero-badge" data-i18n="badge">OPEN SOURCE • GRATIS</div>
     <h1 data-i18n="title">Entpacken & Komprimieren.<br>Vereinfacht.</h1>
     <p class="hero-subtitle" data-i18n="subtitle">
@@ -356,22 +443,40 @@
       Mit Windows Explorer Integration und intuitivem Design.
     </p>
     <div class="download-buttons">
-      <button class="download-btn download-btn-primary" onclick="downloadWindows()">
-        <span>💻</span>
-        <span data-i18n="download-windows">Windows herunterladen</span>
-      </button>
-      <button class="download-btn download-btn-secondary" onclick="downloadMac()">
-        <span>🍎</span>
-        <span data-i18n="download-mac">macOS herunterladen</span>
-      </button>
-      <button class="download-btn download-btn-secondary" onclick="downloadLinux()">
-        <span>🐧</span>
-        <span data-i18n="download-linux">Linux herunterladen</span>
-      </button>
+      <div class="download-card">
+        <button class="download-btn download-btn-primary" onclick="downloadWindows()">
+          <span>💻</span>
+          <span data-i18n="download-windows">Windows herunterladen</span>
+        </button>
+        <div class="system-requirements">
+          <div class="req-title" data-i18n="req-title">Mindestanforderungen</div>
+          <p data-i18n="req-windows">Windows 10/11 (64-bit)<br>4 GB RAM<br>100 MB Speicher</p>
+        </div>
+      </div>
+      <div class="download-card">
+        <button class="download-btn download-btn-secondary" onclick="downloadMac()">
+          <span>🍎</span>
+          <span data-i18n="download-mac">macOS herunterladen</span>
+        </button>
+        <div class="system-requirements">
+          <div class="req-title" data-i18n="req-title">Mindestanforderungen</div>
+          <p data-i18n="req-mac">macOS 10.13+<br>4 GB RAM<br>100 MB Speicher</p>
+        </div>
+      </div>
+      <div class="download-card">
+        <button class="download-btn download-btn-secondary" onclick="downloadLinux()">
+          <span>🐧</span>
+          <span data-i18n="download-linux">Linux herunterladen</span>
+        </button>
+        <div class="system-requirements">
+          <div class="req-title" data-i18n="req-title">Mindestanforderungen</div>
+          <p data-i18n="req-linux">Ubuntu 18.04+ / Debian 10+<br>4 GB RAM<br>100 MB Speicher</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="features">
+  <section class="features" id="features">
     <div class="section-header">
       <div class="section-badge" data-i18n="features-badge">FEATURES</div>
       <h2 data-i18n="features-title">Leistungsstark & Intuitiv</h2>
@@ -443,9 +548,16 @@
         badge: "OPEN SOURCE • GRATIS",
         title: "Entpacken & Komprimieren.<br>Vereinfacht.",
         subtitle: "Die elegante Desktop-App für alle deine Archiv-Dateien. Unterstützt ZIP, RAR, 7Z, TAR und mehr. Mit Windows Explorer Integration und intuitivem Design.",
+        "nav-features": "Features",
+        "nav-download": "Download",
+        "nav-github": "GitHub",
         "download-windows": "Windows herunterladen",
         "download-mac": "macOS herunterladen",
         "download-linux": "Linux herunterladen",
+        "req-title": "Mindestanforderungen",
+        "req-windows": "Windows 10/11 (64-bit)<br>4 GB RAM<br>100 MB Speicher",
+        "req-mac": "macOS 10.13+<br>4 GB RAM<br>100 MB Speicher",
+        "req-linux": "Ubuntu 18.04+ / Debian 10+<br>4 GB RAM<br>100 MB Speicher",
         "features-badge": "FEATURES",
         "features-title": "Leistungsstark & Intuitiv",
         "features-subtitle": "Alles was du für die Archiv-Verwaltung brauchst",
@@ -467,9 +579,16 @@
         badge: "OPEN SOURCE • FREE",
         title: "Extract & Compress.<br>Simplified.",
         subtitle: "The elegant desktop app for all your archive files. Supports ZIP, RAR, 7Z, TAR and more. With Windows Explorer integration and intuitive design.",
+        "nav-features": "Features",
+        "nav-download": "Download",
+        "nav-github": "GitHub",
         "download-windows": "Download for Windows",
         "download-mac": "Download for macOS",
         "download-linux": "Download for Linux",
+        "req-title": "Minimum Requirements",
+        "req-windows": "Windows 10/11 (64-bit)<br>4 GB RAM<br>100 MB Storage",
+        "req-mac": "macOS 10.13+<br>4 GB RAM<br>100 MB Storage",
+        "req-linux": "Ubuntu 18.04+ / Debian 10+<br>4 GB RAM<br>100 MB Storage",
         "features-badge": "FEATURES",
         "features-title": "Powerful & Intuitive",
         "features-subtitle": "Everything you need for archive management",
