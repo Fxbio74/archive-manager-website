@@ -3,131 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive Manager - Einfach Entpacken & Komprimieren</title>
+  <title>Archive Manager - Professional Archive Tool</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* Theme Variables */
-    :root[data-theme="dark"] {
-      --theme-bg-primary: #0a0e27;
-      --theme-text: #e2e8f0;
-      --theme-text-muted: #94a3b8;
-    }
-
-    :root[data-theme="light"] {
-      --theme-bg-primary: #ffffff;
-      --theme-text: #1e293b;
-      --theme-text-muted: #64748b;
-    }
-
-    .theme-toggle-btn {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 20px;
-      padding: 0;
-    }
-
-    :root[data-theme="light"] .theme-toggle-btn {
-      background: rgba(0, 0, 0, 0.05);
-      border-color: rgba(0, 0, 0, 0.15);
-    }
-
-    .theme-toggle-btn:hover {
-      transform: rotate(180deg) scale(1.1);
-      border-color: #667eea;
-    }
-
-    * {
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    }
-
-    /* Light Mode Adjustments */
-    :root[data-theme="light"] body {
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-      color: #1e293b;
-    }
-
-    :root[data-theme="light"] nav {
-      background: rgba(255, 255, 255, 0.9);
-      border-bottom-color: rgba(0, 0, 0, 0.1);
-    }
-
-    :root[data-theme="light"] .nav-links a {
-      color: #64748b;
-    }
-
-    :root[data-theme="light"] .nav-links a:hover {
-      color: #1e293b;
-    }
-
-    :root[data-theme="light"] h1,
-    :root[data-theme="light"] h2,
-    :root[data-theme="light"] h3 {
-      color: #1e293b;
-    }
-
-    :root[data-theme="light"] .hero-subtitle,
-    :root[data-theme="light"] .section-subtitle,
-    :root[data-theme="light"] .download-subtitle {
-      color: #64748b !important;
-    }
-
-    :root[data-theme="light"] .feature-card {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    :root[data-theme="light"] .feature-card:hover {
-      background: rgba(102, 126, 234, 0.05);
-      border-color: rgba(102, 126, 234, 0.5);
-    }
-
-    :root[data-theme="light"] .feature-card p {
-      color: #64748b !important;
-    }
-
-    :root[data-theme="light"] .download-container {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    :root[data-theme="light"] .download-card {
-      background: #f8fafc;
-      border-color: rgba(0, 0, 0, 0.15);
-    }
-
-    :root[data-theme="light"] .download-card:hover {
-      background: #f1f5f9;
-    }
-
-    :root[data-theme="light"] .download-card .size,
-    :root[data-theme="light"] .requirement-item {
-      color: #64748b !important;
-    }
-
-    :root[data-theme="light"] footer {
-      border-top-color: rgba(0, 0, 0, 0.1);
-    }
-
-    :root[data-theme="light"] .footer-content,
-    :root[data-theme="light"] .system-requirements h4 {
-      color: #64748b !important;
-    }
-
-    :root[data-theme="light"] .bg-decoration::before,
-    :root[data-theme="light"] .bg-decoration::after {
-      opacity: 0.08;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -135,88 +14,41 @@
       box-sizing: border-box;
     }
 
-    :root {
-      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --dark: #0a0e27;
-      --dark-light: #1a1f38;
-      --accent: #667eea;
-      --accent-light: #a8b5ff;
-      --text: #e2e8f0;
-      --text-muted: #94a3b8;
+    :root[data-theme="dark"] {
+      --bg-primary: #0a0e27;
+      --bg-secondary: #16213e;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --glass-bg: rgba(0, 0, 0, 0.02);
+      --border-color: rgba(0, 0, 0, 0.1);
     }
 
     body {
-      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--dark);
-      color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.6;
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      transition: all 0.3s ease;
     }
 
-    /* Animated Background */
-    .bg-decoration {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .bg-decoration::before,
-    .bg-decoration::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.15;
-      filter: blur(80px);
-      animation: float 20s infinite ease-in-out;
-    }
-
-    .bg-decoration::before {
-      width: 600px;
-      height: 600px;
-      background: var(--gradient-1);
-      top: -200px;
-      right: -200px;
-      animation-delay: 0s;
-    }
-
-    .bg-decoration::after {
-      width: 500px;
-      height: 500px;
-      background: var(--gradient-2);
-      bottom: -150px;
-      left: -150px;
-      animation-delay: 10s;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(100px, -100px) scale(1.1); }
-      66% { transform: translate(-50px, 50px) scale(0.9); }
-    }
-
-    /* Navigation */
     nav {
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1.5rem 5%;
+      width: 100%;
+      background: var(--glass-bg);
       backdrop-filter: blur(20px);
-      background: rgba(10, 14, 39, 0.8);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-content {
-      max-width: 1400px;
-      margin: 0 auto;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem 2rem;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -225,190 +57,216 @@
     .logo {
       font-size: 1.5rem;
       font-weight: 800;
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .lang-selector {
+      position: relative;
+    }
+
+    .lang-btn {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: var(--text-primary);
+      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
     }
 
-    .nav-links {
+    .lang-btn:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: #667eea;
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 0.5rem;
+      min-width: 200px;
+      display: none;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .lang-dropdown.show {
+      display: block;
+    }
+
+    .lang-option {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s ease;
       display: flex;
-      gap: 2rem;
-      list-style: none;
+      align-items: center;
+      gap: 0.75rem;
     }
 
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-      font-size: 0.95rem;
+    .lang-option:hover {
+      background: var(--glass-bg);
     }
 
-    .nav-links a:hover {
-      color: var(--accent-light);
+    .lang-option.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      min-height: 100vh;
+    .theme-toggle {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      border: 2px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8rem 5% 4rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 20px;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(180deg) scale(1.1);
+      border-color: #667eea;
+    }
+
+    .hero {
+      padding: 120px 2rem 80px;
       text-align: center;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      z-index: 1;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .hero-badge {
       display: inline-block;
-      padding: 0.5rem 1.2rem;
-      background: rgba(102, 126, 234, 0.15);
-      border: 1px solid rgba(102, 126, 234, 0.3);
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       border-radius: 50px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
       margin-bottom: 2rem;
-      animation: fadeInUp 1s ease-out 0.2s both;
     }
 
     h1 {
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-size: 3.5rem;
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.2;
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeInUp 1s ease-out 0.4s both;
     }
 
     .hero-subtitle {
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      color: var(--text-muted);
-      margin-bottom: 3rem;
-      line-height: 1.7;
-      animation: fadeInUp 1s ease-out 0.6s both;
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
     }
 
-    .cta-buttons {
+    .download-buttons {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      animation: fadeInUp 1s ease-out 0.8s both;
     }
 
-    .btn {
-      padding: 1rem 2.5rem;
+    .download-btn {
+      padding: 1rem 2rem;
       border-radius: 12px;
       font-size: 1rem;
       font-weight: 600;
-      text-decoration: none;
+      cursor: pointer;
       transition: all 0.3s ease;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 0.75rem;
-      cursor: pointer;
       border: none;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
-    .btn-primary {
-      background: var(--gradient-1);
+    .download-btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    .download-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+    .download-btn-secondary {
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
+    .download-btn-secondary:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: #667eea;
     }
 
-    /* Features Section */
     .features {
-      position: relative;
-      padding: 6rem 5%;
-      z-index: 1;
+      padding: 80px 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .section-header {
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 4rem;
+      margin-bottom: 4rem;
     }
 
     .section-badge {
       display: inline-block;
-      padding: 0.4rem 1rem;
-      background: rgba(102, 126, 234, 0.15);
-      border: 1px solid rgba(102, 126, 234, 0.3);
+      padding: 0.5rem 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
       border-radius: 50px;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 600;
+      margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 1rem;
     }
 
     h2 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 1rem;
     }
 
     .section-subtitle {
+      color: var(--text-secondary);
       font-size: 1.1rem;
-      color: var(--text-muted);
     }
 
     .features-grid {
-      max-width: 1400px;
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
     .feature-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
       border-radius: 20px;
       padding: 2.5rem;
       transition: all 0.3s ease;
@@ -417,7 +275,7 @@
     .feature-card:hover {
       transform: translateY(-5px);
       border-color: rgba(102, 126, 234, 0.5);
-      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     .feature-icon {
@@ -428,452 +286,472 @@
 
     .feature-card h3 {
       font-size: 1.5rem;
-      font-weight: 700;
       margin-bottom: 1rem;
     }
 
     .feature-card p {
-      color: var(--text-muted);
-      line-height: 1.7;
+      color: var(--text-secondary);
+      line-height: 1.6;
     }
 
-    /* Download Section */
-    .download {
-      position: relative;
-      padding: 6rem 5%;
-      z-index: 1;
-    }
-
-    .download-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 30px;
-      padding: 4rem;
-      text-align: center;
-    }
-
-    .version-badge {
-      display: inline-block;
-      padding: 0.5rem 1.2rem;
-      background: rgba(102, 126, 234, 0.2);
-      border: 1px solid rgba(102, 126, 234, 0.4);
-      border-radius: 50px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    .download-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .download-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 3rem;
-    }
-
-    .download-options {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-
-    .download-card {
-      flex: 1;
-      min-width: 250px;
-      max-width: 350px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 2rem;
-      text-align: left;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .download-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-    }
-
-    .os-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .download-card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .download-card .size {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .system-requirements {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .system-requirements h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .requirements-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      text-align: left;
-    }
-
-    .requirement-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .check-icon {
-      color: #10b981;
-      font-size: 1.2rem;
-    }
-
-    /* Footer */
     footer {
-      position: relative;
-      padding: 3rem 5%;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
       text-align: center;
-      z-index: 1;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-secondary);
     }
 
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      color: var(--text-muted);
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
+      h1 {
+        font-size: 2.5rem;
       }
 
       .hero {
-        padding: 6rem 5% 3rem;
+        padding: 100px 1rem 60px;
       }
 
-      .cta-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        justify-content: center;
-      }
-
-      .download-container {
-        padding: 2.5rem 1.5rem;
-      }
-
-      .download-options {
+      .download-buttons {
         flex-direction: column;
       }
 
-      .download-card {
-        max-width: 100%;
-      }
-    }
-
-    /* Scroll reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: revealAnimation 0.8s ease-out forwards;
-    }
-
-    @keyframes revealAnimation {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .features-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="bg-decoration"></div>
-
   <nav>
-    <div class="nav-content">
-      <div class="logo">
-        📦 Archive Manager
+    <div class="logo">📦 Archive Manager</div>
+    <div class="nav-right">
+      <div class="lang-selector">
+        <button class="lang-btn" onclick="toggleLangDropdown()">
+          <span id="currentLangFlag">🇩🇪</span>
+          <span id="currentLangName">Deutsch</span>
+          <span>▼</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <div class="lang-option active" onclick="changeLang('de')">🇩🇪 Deutsch</div>
+          <div class="lang-option" onclick="changeLang('en')">🇬🇧 English</div>
+          <div class="lang-option" onclick="changeLang('fr')">🇫🇷 Français</div>
+          <div class="lang-option" onclick="changeLang('es')">🇪🇸 Español</div>
+          <div class="lang-option" onclick="changeLang('it')">🇮🇹 Italiano</div>
+          <div class="lang-option" onclick="changeLang('pt')">🇵🇹 Português</div>
+          <div class="lang-option" onclick="changeLang('nl')">🇳🇱 Nederlands</div>
+          <div class="lang-option" onclick="changeLang('pl')">🇵🇱 Polski</div>
+          <div class="lang-option" onclick="changeLang('tr')">🇹🇷 Türkçe</div>
+        </div>
       </div>
-      <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#download">Download</a></li>
-        <li><a href="#about">Über</a></li>
-        <li>
-          <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">
-            <span id="themeIcon">☀️</span>
-          </button>
-        </li>
-      </ul>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="themeIcon">🌙</span>
+      </button>
     </div>
   </nav>
 
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">Open Source • Kostenlos</div>
-      <h1>Entpacken & Komprimieren.<br>Einfach gemacht.</h1>
-      <p class="hero-subtitle">
-        Die elegante Desktop-App für alle deine Archiv-Dateien. 
-        Unterstützt ZIP, RAR, 7Z, TAR und mehr. 
-        Mit Windows Explorer Integration und intuitivem Design.
-      </p>
-      <div class="cta-buttons">
-        <a href="#download" class="btn btn-primary">
-          <span>⬇️</span>
-          Jetzt Herunterladen
-        </a>
-        <a href="#features" class="btn btn-secondary">
-          <span>✨</span>
-          Features Entdecken
-        </a>
-      </div>
+    <div class="hero-badge" data-i18n="badge">OPEN SOURCE • GRATIS</div>
+    <h1 data-i18n="title">Entpacken & Komprimieren.<br>Vereinfacht.</h1>
+    <p class="hero-subtitle" data-i18n="subtitle">
+      Die elegante Desktop-App für alle deine Archiv-Dateien. Unterstützt ZIP, RAR, 7Z, TAR und mehr. 
+      Mit Windows Explorer Integration und intuitivem Design.
+    </p>
+    <div class="download-buttons">
+      <button class="download-btn download-btn-primary" onclick="downloadWindows()">
+        <span>💻</span>
+        <span data-i18n="download-windows">Windows herunterladen</span>
+      </button>
+      <button class="download-btn download-btn-secondary" onclick="downloadMac()">
+        <span>🍎</span>
+        <span data-i18n="download-mac">macOS herunterladen</span>
+      </button>
+      <button class="download-btn download-btn-secondary" onclick="downloadLinux()">
+        <span>🐧</span>
+        <span data-i18n="download-linux">Linux herunterladen</span>
+      </button>
     </div>
   </section>
 
-  <section class="features" id="features">
-    <div class="section-header reveal">
-      <div class="section-badge">Features</div>
-      <h2>Alles was du brauchst</h2>
-      <p class="section-subtitle">Leistungsstark, intuitiv und komplett kostenlos</p>
+  <section class="features">
+    <div class="section-header">
+      <div class="section-badge" data-i18n="features-badge">FEATURES</div>
+      <h2 data-i18n="features-title">Leistungsstark & Intuitiv</h2>
+      <p class="section-subtitle" data-i18n="features-subtitle">
+        Alles was du für die Archiv-Verwaltung brauchst
+      </p>
     </div>
 
     <div class="features-grid">
-      <div class="feature-card reveal">
+      <div class="feature-card">
         <span class="feature-icon">📂</span>
-        <h3>Entpacken</h3>
-        <p>Unterstützt ZIP, RAR, 7Z, TAR, GZ und viele weitere Formate. Einfach Drag & Drop oder per Rechtsklick im Explorer.</p>
+        <h3 data-i18n="feature1-title">Multi-Format Support</h3>
+        <p data-i18n="feature1-desc">
+          Entpacke ZIP, RAR, 7Z, TAR, GZ und mehr. Komprimiere in ZIP, TAR und TAR.GZ.
+        </p>
       </div>
 
-      <div class="feature-card reveal">
-        <span class="feature-icon">🗜️</span>
-        <h3>Komprimieren</h3>
-        <p>Erstelle ZIP, TAR und TAR.GZ Archive mit wählbarer Komprimierungsstufe. Mehrere Dateien und Ordner gleichzeitig.</p>
-      </div>
-
-      <div class="feature-card reveal">
-        <span class="feature-icon">⚡</span>
-        <h3>Schnell & Einfach</h3>
-        <p>Moderne Benutzeroberfläche mit Tab-Navigation. Fortschrittsanzeige in Echtzeit und intuitive Bedienung.</p>
-      </div>
-
-      <div class="feature-card reveal">
-        <span class="feature-icon">🔗</span>
-        <h3>Explorer Integration</h3>
-        <p>Rechtsklick auf Archive im Windows Explorer und direkt mit Archive Manager öffnen. Nahtlose Integration.</p>
-      </div>
-
-      <div class="feature-card reveal">
+      <div class="feature-card">
         <span class="feature-icon">🎨</span>
-        <h3>Schickes Design</h3>
-        <p>Minimalistisches, dunkles Theme mit sanften Animationen. Entwickelt für optimale Benutzererfahrung.</p>
+        <h3 data-i18n="feature2-title">Modernes Design</h3>
+        <p data-i18n="feature2-desc">
+          Dark & Light Mode. Elegante Benutzeroberfläche mit glatten Animationen.
+        </p>
       </div>
 
-      <div class="feature-card reveal">
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3 data-i18n="feature3-title">Blitzschnell</h3>
+        <p data-i18n="feature3-desc">
+          Optimiert für maximale Performance. Entpacke große Archive in Sekunden.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">🖱️</span>
+        <h3 data-i18n="feature4-title">Drag & Drop</h3>
+        <p data-i18n="feature4-desc">
+          Ziehe Dateien einfach in die App. Keine komplizierten Menüs.
+        </p>
+      </div>
+
+      <div class="feature-card">
         <span class="feature-icon">🔒</span>
-        <h3>Open Source</h3>
-        <p>Komplett kostenlos und open source. Keine versteckten Kosten, keine Werbung, keine Tracking.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="download" id="download">
-    <div class="download-container reveal">
-      <div class="version-badge">v1.0.0</div>
-      <h2 class="download-title">Jetzt Herunterladen</h2>
-      <p class="download-subtitle">Kostenlos für Windows, macOS & Linux • Mehrsprachiger Installer</p>
-
-      <div class="download-options">
-        <div class="download-card" onclick="downloadWindows()">
-          <span class="os-icon">🪟</span>
-          <h3>Windows</h3>
-          <p class="size">~80 MB • .exe Installer</p>
-          <button class="btn btn-primary" style="width: 100%;">
-            <span>⬇️</span>
-            Windows Download
-          </button>
-        </div>
-
-        <div class="download-card" onclick="downloadMac()">
-          <span class="os-icon">🍎</span>
-          <h3>macOS</h3>
-          <p class="size">~85 MB • .dmg Image</p>
-          <button class="btn btn-primary" style="width: 100%;">
-            <span>⬇️</span>
-            macOS Download
-          </button>
-        </div>
-
-        <div class="download-card" onclick="downloadLinux()">
-          <span class="os-icon">🐧</span>
-          <h3>Linux</h3>
-          <p class="size">~85 MB • AppImage</p>
-          <button class="btn btn-primary" style="width: 100%;">
-            <span>⬇️</span>
-            Linux Download
-          </button>
-        </div>
+        <h3 data-i18n="feature5-title">Open Source</h3>
+        <p data-i18n="feature5-desc">
+          100% transparent und sicher. Quellcode auf GitHub verfügbar.
+        </p>
       </div>
 
-      <div class="system-requirements">
-        <h4>Systemanforderungen</h4>
-        <div class="requirements-list">
-          <div class="requirement-item">
-            <span class="check-icon">✓</span>
-            Windows 10/11, macOS 10.13+ oder Linux
-          </div>
-          <div class="requirement-item">
-            <span class="check-icon">✓</span>
-            4 GB RAM
-          </div>
-          <div class="requirement-item">
-            <span class="check-icon">✓</span>
-            100 MB freier Speicher
-          </div>
-          <div class="requirement-item">
-            <span class="check-icon">✓</span>
-            x64 Prozessor
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="features" id="about" style="padding-top: 4rem;">
-    <div class="section-header reveal">
-      <div class="section-badge">Installation</div>
-      <h2>So geht's</h2>
-    </div>
-
-    <div class="features-grid" style="max-width: 900px;">
-      <div class="feature-card reveal">
-        <span class="feature-icon" style="font-size: 2rem;">1️⃣</span>
-        <h3>Download</h3>
-        <p>Lade den Installer herunter und starte die .exe Datei.</p>
-      </div>
-
-      <div class="feature-card reveal">
-        <span class="feature-icon" style="font-size: 2rem;">2️⃣</span>
-        <h3>Sprache wählen</h3>
-        <p>Wähle deine bevorzugte Sprache (Deutsch oder Englisch) im Installer.</p>
-      </div>
-
-      <div class="feature-card reveal">
-        <span class="feature-icon" style="font-size: 2rem;">3️⃣</span>
-        <h3>Fertig!</h3>
-        <p>Archive Manager ist installiert und mit Archiv-Dateien verknüpft.</p>
+      <div class="feature-card">
+        <span class="feature-icon">🌍</span>
+        <h3 data-i18n="feature6-title">Mehrsprachig</h3>
+        <p data-i18n="feature6-desc">
+          Verfügbar in 9 Sprachen. Automatische Spracherkennung.
+        </p>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="footer-content">
-      <p>Archive Manager • Open Source • Made with ❤️ by Fabio</p>
-      <p style="margin-top: 1rem; font-size: 0.9rem;">© 2025 • MIT License</p>
-    </div>
+    <p>Archive Manager • Open Source • <span data-i18n="footer">Made with ❤️ by Fabio</span></p>
+    <p style="margin-top: 1rem;">© 2025 • MIT License</p>
   </footer>
 
   <script>
-    // Scroll reveal animation
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+    // Translations
+    const translations = {
+      de: {
+        badge: "OPEN SOURCE • GRATIS",
+        title: "Entpacken & Komprimieren.<br>Vereinfacht.",
+        subtitle: "Die elegante Desktop-App für alle deine Archiv-Dateien. Unterstützt ZIP, RAR, 7Z, TAR und mehr. Mit Windows Explorer Integration und intuitivem Design.",
+        "download-windows": "Windows herunterladen",
+        "download-mac": "macOS herunterladen",
+        "download-linux": "Linux herunterladen",
+        "features-badge": "FEATURES",
+        "features-title": "Leistungsstark & Intuitiv",
+        "features-subtitle": "Alles was du für die Archiv-Verwaltung brauchst",
+        "feature1-title": "Multi-Format Support",
+        "feature1-desc": "Entpacke ZIP, RAR, 7Z, TAR, GZ und mehr. Komprimiere in ZIP, TAR und TAR.GZ.",
+        "feature2-title": "Modernes Design",
+        "feature2-desc": "Dark & Light Mode. Elegante Benutzeroberfläche mit glatten Animationen.",
+        "feature3-title": "Blitzschnell",
+        "feature3-desc": "Optimiert für maximale Performance. Entpacke große Archive in Sekunden.",
+        "feature4-title": "Drag & Drop",
+        "feature4-desc": "Ziehe Dateien einfach in die App. Keine komplizierten Menüs.",
+        "feature5-title": "Open Source",
+        "feature5-desc": "100% transparent und sicher. Quellcode auf GitHub verfügbar.",
+        "feature6-title": "Mehrsprachig",
+        "feature6-desc": "Verfügbar in 9 Sprachen. Automatische Spracherkennung.",
+        footer: "Made with ❤️ by Fabio"
+      },
+      en: {
+        badge: "OPEN SOURCE • FREE",
+        title: "Extract & Compress.<br>Simplified.",
+        subtitle: "The elegant desktop app for all your archive files. Supports ZIP, RAR, 7Z, TAR and more. With Windows Explorer integration and intuitive design.",
+        "download-windows": "Download for Windows",
+        "download-mac": "Download for macOS",
+        "download-linux": "Download for Linux",
+        "features-badge": "FEATURES",
+        "features-title": "Powerful & Intuitive",
+        "features-subtitle": "Everything you need for archive management",
+        "feature1-title": "Multi-Format Support",
+        "feature1-desc": "Extract ZIP, RAR, 7Z, TAR, GZ and more. Compress to ZIP, TAR and TAR.GZ.",
+        "feature2-title": "Modern Design",
+        "feature2-desc": "Dark & Light Mode. Elegant user interface with smooth animations.",
+        "feature3-title": "Lightning Fast",
+        "feature3-desc": "Optimized for maximum performance. Extract large archives in seconds.",
+        "feature4-title": "Drag & Drop",
+        "feature4-desc": "Simply drag files into the app. No complicated menus.",
+        "feature5-title": "Open Source",
+        "feature5-desc": "100% transparent and secure. Source code available on GitHub.",
+        "feature6-title": "Multilingual",
+        "feature6-desc": "Available in 9 languages. Automatic language detection.",
+        footer: "Made with ❤️ by Fabio"
+      },
+      fr: {
+        badge: "OPEN SOURCE • GRATUIT",
+        title: "Extraction & Compression.<br>Simplifiée.",
+        subtitle: "L'application de bureau élégante pour tous vos fichiers d'archives. Prend en charge ZIP, RAR, 7Z, TAR et plus. Avec intégration Windows Explorer et design intuitif.",
+        "download-windows": "Télécharger pour Windows",
+        "download-mac": "Télécharger pour macOS",
+        "download-linux": "Télécharger pour Linux",
+        "features-badge": "FONCTIONNALITÉS",
+        "features-title": "Puissant & Intuitif",
+        "features-subtitle": "Tout ce dont vous avez besoin pour la gestion des archives",
+        "feature1-title": "Support Multi-Format",
+        "feature1-desc": "Extrayez ZIP, RAR, 7Z, TAR, GZ et plus. Compressez en ZIP, TAR et TAR.GZ.",
+        "feature2-title": "Design Moderne",
+        "feature2-desc": "Mode Sombre & Clair. Interface utilisateur élégante avec animations fluides.",
+        "feature3-title": "Ultra Rapide",
+        "feature3-desc": "Optimisé pour des performances maximales. Extrayez de grandes archives en secondes.",
+        "feature4-title": "Glisser-Déposer",
+        "feature4-desc": "Glissez simplement les fichiers dans l'application. Pas de menus compliqués.",
+        "feature5-title": "Open Source",
+        "feature5-desc": "100% transparent et sécurisé. Code source disponible sur GitHub.",
+        "feature6-title": "Multilingue",
+        "feature6-desc": "Disponible en 9 langues. Détection automatique de la langue.",
+        footer: "Fait avec ❤️ par Fabio"
+      },
+      es: {
+        badge: "OPEN SOURCE • GRATIS",
+        title: "Extraer & Comprimir.<br>Simplificado.",
+        subtitle: "La elegante aplicación de escritorio para todos tus archivos comprimidos. Compatible con ZIP, RAR, 7Z, TAR y más. Con integración de Windows Explorer y diseño intuitivo.",
+        "download-windows": "Descargar para Windows",
+        "download-mac": "Descargar para macOS",
+        "download-linux": "Descargar para Linux",
+        "features-badge": "CARACTERÍSTICAS",
+        "features-title": "Potente & Intuitivo",
+        "features-subtitle": "Todo lo que necesitas para gestionar archivos",
+        "feature1-title": "Soporte Multi-Formato",
+        "feature1-desc": "Extrae ZIP, RAR, 7Z, TAR, GZ y más. Comprime en ZIP, TAR y TAR.GZ.",
+        "feature2-title": "Diseño Moderno",
+        "feature2-desc": "Modo Oscuro y Claro. Interfaz elegante con animaciones suaves.",
+        "feature3-title": "Ultrarrápido",
+        "feature3-desc": "Optimizado para máximo rendimiento. Extrae archivos grandes en segundos.",
+        "feature4-title": "Arrastrar y Soltar",
+        "feature4-desc": "Simplemente arrastra archivos a la aplicación. Sin menús complicados.",
+        "feature5-title": "Código Abierto",
+        "feature5-desc": "100% transparente y seguro. Código fuente disponible en GitHub.",
+        "feature6-title": "Multilingüe",
+        "feature6-desc": "Disponible en 9 idiomas. Detección automática de idioma.",
+        footer: "Hecho con ❤️ por Fabio"
+      },
+      it: {
+        badge: "OPEN SOURCE • GRATIS",
+        title: "Estrazione & Compressione.<br>Semplificato.",
+        subtitle: "L'elegante applicazione desktop per tutti i tuoi file di archivio. Supporta ZIP, RAR, 7Z, TAR e altro. Con integrazione Windows Explorer e design intuitivo.",
+        "download-windows": "Scarica per Windows",
+        "download-mac": "Scarica per macOS",
+        "download-linux": "Scarica per Linux",
+        "features-badge": "FUNZIONALITÀ",
+        "features-title": "Potente & Intuitivo",
+        "features-subtitle": "Tutto ciò di cui hai bisogno per la gestione degli archivi",
+        "feature1-title": "Supporto Multi-Formato",
+        "feature1-desc": "Estrai ZIP, RAR, 7Z, TAR, GZ e altro. Comprimi in ZIP, TAR e TAR.GZ.",
+        "feature2-title": "Design Moderno",
+        "feature2-desc": "Modalità Scura e Chiara. Interfaccia elegante con animazioni fluide.",
+        "feature3-title": "Veloce come un Fulmine",
+        "feature3-desc": "Ottimizzato per prestazioni massime. Estrai archivi grandi in secondi.",
+        "feature4-title": "Trascina e Rilascia",
+        "feature4-desc": "Trascina semplicemente i file nell'app. Nessun menu complicato.",
+        "feature5-title": "Open Source",
+        "feature5-desc": "100% trasparente e sicuro. Codice sorgente disponibile su GitHub.",
+        "feature6-title": "Multilingue",
+        "feature6-desc": "Disponibile in 9 lingue. Rilevamento automatico della lingua.",
+        footer: "Fatto con ❤️ da Fabio"
+      },
+      pt: {
+        badge: "OPEN SOURCE • GRÁTIS",
+        title: "Extrair & Comprimir.<br>Simplificado.",
+        subtitle: "O elegante aplicativo de desktop para todos os seus arquivos compactados. Suporta ZIP, RAR, 7Z, TAR e mais. Com integração Windows Explorer e design intuitivo.",
+        "download-windows": "Baixar para Windows",
+        "download-mac": "Baixar para macOS",
+        "download-linux": "Baixar para Linux",
+        "features-badge": "RECURSOS",
+        "features-title": "Poderoso & Intuitivo",
+        "features-subtitle": "Tudo que você precisa para gerenciar arquivos",
+        "feature1-title": "Suporte Multi-Formato",
+        "feature1-desc": "Extraia ZIP, RAR, 7Z, TAR, GZ e mais. Comprima em ZIP, TAR e TAR.GZ.",
+        "feature2-title": "Design Moderno",
+        "feature2-desc": "Modo Escuro e Claro. Interface elegante com animações suaves.",
+        "feature3-title": "Ultra Rápido",
+        "feature3-desc": "Otimizado para desempenho máximo. Extraia arquivos grandes em segundos.",
+        "feature4-title": "Arrastar e Soltar",
+        "feature4-desc": "Simplesmente arraste arquivos para o aplicativo. Sem menus complicados.",
+        "feature5-title": "Código Aberto",
+        "feature5-desc": "100% transparente e seguro. Código fonte disponível no GitHub.",
+        "feature6-title": "Multilíngue",
+        "feature6-desc": "Disponível em 9 idiomas. Detecção automática de idioma.",
+        footer: "Feito com ❤️ por Fabio"
+      },
+      nl: {
+        badge: "OPEN SOURCE • GRATIS",
+        title: "Uitpakken & Comprimeren.<br>Vereenvoudigd.",
+        subtitle: "De elegante desktop-app voor al je archiefbestanden. Ondersteunt ZIP, RAR, 7Z, TAR en meer. Met Windows Verkenner integratie en intuïtief ontwerp.",
+        "download-windows": "Download voor Windows",
+        "download-mac": "Download voor macOS",
+        "download-linux": "Download voor Linux",
+        "features-badge": "FUNCTIES",
+        "features-title": "Krachtig & Intuïtief",
+        "features-subtitle": "Alles wat je nodig hebt voor archiefbeheer",
+        "feature1-title": "Multi-Formaat Ondersteuning",
+        "feature1-desc": "Pak ZIP, RAR, 7Z, TAR, GZ en meer uit. Comprimeer naar ZIP, TAR en TAR.GZ.",
+        "feature2-title": "Modern Ontwerp",
+        "feature2-desc": "Donkere & Lichte Modus. Elegante gebruikersinterface met vloeiende animaties.",
+        "feature3-title": "Bliksnemsnel",
+        "feature3-desc": "Geoptimaliseerd voor maximale prestaties. Pak grote archieven uit in seconden.",
+        "feature4-title": "Slepen & Neerzetten",
+        "feature4-desc": "Sleep bestanden gewoon naar de app. Geen ingewikkelde menu's.",
+        "feature5-title": "Open Source",
+        "feature5-desc": "100% transparant en veilig. Broncode beschikbaar op GitHub.",
+        "feature6-title": "Meertalig",
+        "feature6-desc": "Beschikbaar in 9 talen. Automatische taaldetectie.",
+        footer: "Gemaakt met ❤️ door Fabio"
+      },
+      pl: {
+        badge: "OPEN SOURCE • DARMOWE",
+        title: "Rozpakowywanie & Kompresja.<br>Uproszczone.",
+        subtitle: "Elegancka aplikacja desktopowa dla wszystkich Twoich plików archiwalnych. Obsługuje ZIP, RAR, 7Z, TAR i więcej. Z integracją Eksploratora Windows i intuicyjnym designem.",
+        "download-windows": "Pobierz dla Windows",
+        "download-mac": "Pobierz dla macOS",
+        "download-linux": "Pobierz dla Linux",
+        "features-badge": "FUNKCJE",
+        "features-title": "Potężny & Intuicyjny",
+        "features-subtitle": "Wszystko czego potrzebujesz do zarządzania archiwami",
+        "feature1-title": "Obsługa Wielu Formatów",
+        "feature1-desc": "Rozpakuj ZIP, RAR, 7Z, TAR, GZ i więcej. Kompresuj do ZIP, TAR i TAR.GZ.",
+        "feature2-title": "Nowoczesny Design",
+        "feature2-desc": "Tryb Ciemny i Jasny. Elegancki interfejs użytkownika z płynnymi animacjami.",
+        "feature3-title": "Błyskawicznie Szybki",
+        "feature3-desc": "Zoptymalizowany dla maksymalnej wydajności. Rozpakuj duże archiwa w sekundach.",
+        "feature4-title": "Przeciągnij i Upuść",
+        "feature4-desc": "Po prostu przeciągnij pliki do aplikacji. Bez skomplikowanych menu.",
+        "feature5-title": "Open Source",
+        "feature5-desc": "100% przejrzysty i bezpieczny. Kod źródłowy dostępny na GitHub.",
+        "feature6-title": "Wielojęzyczny",
+        "feature6-desc": "Dostępny w 9 językach. Automatyczne wykrywanie języka.",
+        footer: "Stworzone z ❤️ przez Fabio"
+      },
+      tr: {
+        badge: "AÇIK KAYNAK • ÜCRETSİZ",
+        title: "Çıkar & Sıkıştır.<br>Basitleştirildi.",
+        subtitle: "Tüm arşiv dosyalarınız için şık masaüstü uygulaması. ZIP, RAR, 7Z, TAR ve daha fazlasını destekler. Windows Explorer entegrasyonu ve sezgisel tasarımla.",
+        "download-windows": "Windows için İndir",
+        "download-mac": "macOS için İndir",
+        "download-linux": "Linux için İndir",
+        "features-badge": "ÖZELLİKLER",
+        "features-title": "Güçlü & Sezgisel",
+        "features-subtitle": "Arşiv yönetimi için ihtiyacınız olan her şey",
+        "feature1-title": "Çoklu Format Desteği",
+        "feature1-desc": "ZIP, RAR, 7Z, TAR, GZ ve daha fazlasını çıkarın. ZIP, TAR ve TAR.GZ formatlarında sıkıştırın.",
+        "feature2-title": "Modern Tasarım",
+        "feature2-desc": "Karanlık ve Aydınlık Mod. Akıcı animasyonlarla zarif kullanıcı arayüzü.",
+        "feature3-title": "Şimşek Hızında",
+        "feature3-desc": "Maksimum performans için optimize edildi. Büyük arşivleri saniyeler içinde çıkarın.",
+        "feature4-title": "Sürükle & Bırak",
+        "feature4-desc": "Dosyaları uygulamaya sürüklemeniz yeterli. Karmaşık menüler yok.",
+        "feature5-title": "Açık Kaynak",
+        "feature5-desc": "100% şeffaf ve güvenli. Kaynak kodu GitHub'da mevcut.",
+        "feature6-title": "Çok Dilli",
+        "feature6-desc": "9 dilde kullanılabilir. Otomatik dil algılama.",
+        footer: "❤️ ile Fabio tarafından yapıldı"
+      }
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
+    // Language data
+    const languages = {
+      de: { flag: "🇩🇪", name: "Deutsch" },
+      en: { flag: "🇬🇧", name: "English" },
+      fr: { flag: "🇫🇷", name: "Français" },
+      es: { flag: "🇪🇸", name: "Español" },
+      it: { flag: "🇮🇹", name: "Italiano" },
+      pt: { flag: "🇵🇹", name: "Português" },
+      nl: { flag: "🇳🇱", name: "Nederlands" },
+      pl: { flag: "🇵🇱", name: "Polski" },
+      tr: { flag: "🇹🇷", name: "Türkçe" }
+    };
 
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
+    // Current language
+    let currentLang = localStorage.getItem('lang') || 'de';
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      changeLang(currentLang);
+      
+      // Load theme
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
     });
 
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Change language
+    function changeLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+
+      // Update all translations
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          elem.innerHTML = translations[lang][key];
         }
       });
+
+      // Update current language display
+      document.getElementById('currentLangFlag').textContent = languages[lang].flag;
+      document.getElementById('currentLangName').textContent = languages[lang].name;
+
+      // Update active state in dropdown
+      document.querySelectorAll('.lang-option').forEach((opt, index) => {
+        const langCode = Object.keys(languages)[index];
+        opt.classList.toggle('active', langCode === lang);
+      });
+
+      // Close dropdown
+      document.getElementById('langDropdown').classList.remove('show');
+    }
+
+    // Toggle language dropdown
+    function toggleLangDropdown() {
+      document.getElementById('langDropdown').classList.toggle('show');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.lang-selector')) {
+        document.getElementById('langDropdown').classList.remove('show');
+      }
     });
 
-    // Download function
-    function downloadWindows() {
-      // This would link to your actual download file
-      alert('Download wird gestartet...\n\nIn der finalen Version würde hier der Download starten.\nDatei: Archive-Manager-Setup-1.0.0.exe');
-      // window.location.href = 'path/to/Archive-Manager-Setup-1.0.0.exe';
-    }
-
-    function downloadMac() {
-      alert('Download wird gestartet...\n\nIn der finalen Version würde hier der Download starten.\nDatei: Archive-Manager-1.0.0.dmg');
-      // window.location.href = 'path/to/Archive-Manager-1.0.0.dmg';
-    }
-
-    function downloadLinux() {
-      alert('Download wird gestartet...\n\nIn der finalen Version würde hier der Download starten.\nDatei: Archive-Manager-1.0.0.AppImage');
-      // window.location.href = 'path/to/Archive-Manager-1.0.0.AppImage';
-    }
-
-    // Theme Toggle
-    const savedTheme = localStorage.getItem('archive-manager-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-
+    // Theme toggle
     function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('archive-manager-theme', newTheme);
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
       updateThemeIcon(newTheme);
     }
 
     function updateThemeIcon(theme) {
-      const icon = document.getElementById('themeIcon');
-      if (icon) {
-        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
-      }
+      document.getElementById('themeIcon').textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Download functions
+    function downloadWindows() {
+      alert('Windows Download startet...\n\nFüge hier später deinen GitHub Release Link ein!');
+      // window.location.href = 'DEINE_GITHUB_RELEASE_URL.exe';
+    }
+
+    function downloadMac() {
+      alert('macOS Download startet...\n\nFüge hier später deinen GitHub Release Link ein!');
+      // window.location.href = 'DEINE_GITHUB_RELEASE_URL.dmg';
+    }
+
+    function downloadLinux() {
+      alert('Linux Download startet...\n\nFüge hier später deinen GitHub Release Link ein!');
+      // window.location.href = 'DEINE_GITHUB_RELEASE_URL.AppImage';
     }
   </script>
 </body>
